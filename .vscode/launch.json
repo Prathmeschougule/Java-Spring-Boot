@@ -2,6 +2,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "MyClass",
             "request": "launch",
             "mainClass": "com.myCompany.demo.MyClass",
@@ -17,6 +18,22 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=63742 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=demo"
+=======
+            "name": "DemoApplication",
+            "request": "launch",
+            "mainClass": "com.myCompany.demo.DemoApplication",
+            "projectName": "com.myCompany-demo"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<com.submissionFormAndLandingPage-demo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.submissionFormAndLandingPage.demo.DemoApplication",
+            "projectName": "com.submissionFormAndLandingPage-demo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+>>>>>>> 6cd5e15 (Calculatore Find Id Send Data)
         }
     ]
 }

@@ -1,34 +1,48 @@
 package com.example.crudone;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
+import java.util.HashMap;
+import java.util.Map;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+
 
 
 @RestController
 public class MyController {
     
-    @GetMapping("get")
-    public static String userData(){
-         return "GetData from Data";
-    }
-
-    @PutMapping("put")
-    public static String putMethodName() {
-       
-         return "PutData from the Put mapping ";
-    }
     
-    @PostMapping("post")
-    public String postMethodName() {
+    private Map<Integer,Book>booksMap= new HashMap<>();
+
+   @GetMapping("Books")
+   public Map getMethodBooks() {
+
+    //  Get All The Book 
+     return booksMap;
+   }
+
+   @PostMapping("Books")
+   public Book createBook(@RequestBody Book book) {
+
+    // store the Data in the hashmap
+     booksMap.put(book.getId(),book);
        
-        
-        return "post";
-    }
-    @DeleteMapping("dekete")
-    public static String  deleteMenthod(){
-        return "delete";
-    }
+      return book;
+   }
+   
+//    @PutMapping("path/{id}")
+//    public String putMethodName(@PathVariable String id, @RequestBody String entity) {
+//        //TODO: process PUT request
+       
+//        return entity;
+//    }
+   
 }

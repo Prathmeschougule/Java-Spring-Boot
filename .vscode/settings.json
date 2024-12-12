@@ -2,5 +2,6 @@
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
         "Helo"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }

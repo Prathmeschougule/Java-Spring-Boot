@@ -14,7 +14,7 @@ public class BookServiceImp implements BookService {
     private Map<Integer, Book> bookMap = new HashMap<>();
 
     @Override
-    public Map<Integer, Book> readbook() {
+    public Map readbook() {
         return bookMap;
     }
 

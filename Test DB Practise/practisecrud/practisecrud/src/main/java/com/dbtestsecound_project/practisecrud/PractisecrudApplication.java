@@ -1,13 +1,13 @@
-package com.crudwithdatah2db.dbtestproject;
+package com.dbtestsecound_project.practisecrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DbtestProjectApplication {
+public class PractisecrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DbtestProjectApplication.class, args);
+		SpringApplication.run(PractisecrudApplication.class, args);
 	}
 
 }

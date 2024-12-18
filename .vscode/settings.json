@@ -1,7 +1,8 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
-        "Helo"
+        "Helo",
+        "serviceimplement"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

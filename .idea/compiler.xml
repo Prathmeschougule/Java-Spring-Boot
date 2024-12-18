@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="crudone" />
+        <module name="demo" />
+        <module name="crudapi" />
+        <module name="dbtest-project" />
+        <module name="demo (1) (com.example)" />
+        <module name="demo (1) (com.submissionFormAndLandingPage)" />
+      </profile>
+      <profile name="Annotation profile for practisecrud" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="practisecrud" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="crudapi" options="-parameters" />
+      <module name="crudone" options="-parameters" />
+      <module name="dbtest-project" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="demo (1) (com.example)" options="-parameters" />
+      <module name="demo (1) (com.submissionFormAndLandingPage)" options="-parameters" />
+      <module name="practisecrud" options="-parameters" />
+    </option>
+  </component>
+</project>

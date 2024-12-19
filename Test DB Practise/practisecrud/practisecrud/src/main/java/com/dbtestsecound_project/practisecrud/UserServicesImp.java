@@ -9,6 +9,10 @@ public class UserServicesImp implements UserService {
 
     // depency Injection 
     private UserRepository userRepository;
+
+    User user;
+
+
     
    public UserServicesImp(UserRepository userRepository){
         this.userRepository=userRepository;
@@ -39,14 +43,19 @@ public class UserServicesImp implements UserService {
 }
 
     @Override
-    public User updatuser(int id, User user) {
-      
-        User existinguser=userRepository.findById(id).get();
-        
+    public User updatuser(int id ,User userUpdate) {
+
+        User existingUser = userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User with ID " + id + " not found"));
+
         // existinguser.setId(user.getId());
-        existinguser.setName(user.getName());
-         userRepository.save(existinguser);
-        return existinguser;
+        existingUser.setName(userUpdate.getName());
+
+        User updatedUser = userRepository.save(existingUser);
+
+        System.out.println("Updated User: " + updatedUser);
+         return  updatedUser;
+    
     }
 
     @Override

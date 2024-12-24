@@ -9,7 +9,8 @@ import lombok.Data;
 
 @Data
 @Entity
-public class User {
+@Table(name = "prathmesh")
+public class UserEntity {
     @Id
     private   int id;
     private String name;

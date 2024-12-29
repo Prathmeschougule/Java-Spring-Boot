@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 
 
 @Data
-@Entity
+@Entity(name="usertb")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class User {
     @Id
     private   int id;

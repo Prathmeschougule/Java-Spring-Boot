@@ -23,7 +23,14 @@ public class HospitalServiceImple  implements HospitalServices {
     public List<HospitalModel> getAllPaitent() {
         // type Conversion dto to model
         List<HospitalModel>hospitalModels=new ArrayList<>();
-        hospitalRepository.findAll();
+        List<HospitalDto>hospitalDb=hospitalRepository.findAll();
+
+        for (HospitalDto hospitalDto : hospitalDb) {
+            HospitalModel hospitalModel=new HospitalModel();
+             BeanUtils.copyProperties( hospitalDto,hospitalModel);
+
+             hospitalModels.add(hospitalModel);
+        }
         return hospitalModels;
         
     }
@@ -58,11 +65,28 @@ public class HospitalServiceImple  implements HospitalServices {
 
     @Override
     public String paitentdelet(int id) {
-      hospitalRepository.deleteById(id);
+      HospitalDto hospitalDto=hospitalRepository.findById(id).get();
+      hospitalRepository.delete(hospitalDto);
+
        return "deletepaitent";
       
        
        
+    }
+
+    @Override
+    public HospitalModel updatePaitent(int id, HospitalModel hospitalModel) {
+      
+        HospitalDto hospitalDto=hospitalRepository.findById(id).get();
+
+        hospitalDto.setName(hospitalModel.getName());
+        hospitalDto.setAddress(hospitalModel.getAddress());
+        hospitalDto.setEmail(hospitalModel.getEmail());
+        hospitalDto.setPhone(hospitalModel.getPhone());
+
+        hospitalRepository.save(hospitalDto);
+
+        return hospitalModel;
     }
 
   

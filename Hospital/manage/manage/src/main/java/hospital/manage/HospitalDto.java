@@ -12,7 +12,7 @@ import lombok.Data;
 // Used To Stored The Data 
 public class HospitalDto {
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;

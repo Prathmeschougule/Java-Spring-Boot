@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -49,5 +51,9 @@ public class HospitalController {
         return hospitalServices.paitentdelet(id);
     }
     
+    @PutMapping("/{id}")
+    public HospitalModel putMethodName(@PathVariable int id, @RequestBody HospitalModel hospitalModel) {
+        return hospitalServices.updatePaitent(id, hospitalModel); // Call using the instance
+    }
     
 }

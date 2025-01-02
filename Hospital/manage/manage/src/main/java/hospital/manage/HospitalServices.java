@@ -8,5 +8,6 @@ public interface HospitalServices {
     HospitalModel getPaitentid(int id );
     String savePaitent(HospitalModel hospitalModel);
     String paitentdelet(int id );
+    HospitalModel updatePaitent(int id ,HospitalModel hospitalModel);
   
 }

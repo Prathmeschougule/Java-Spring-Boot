@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -36,7 +38,7 @@ public class UserController {
         return userServices.getalluser();
     }
 
-    @GetMapping({"id"})
+    @GetMapping("{id}")
     public ModelUser getbyId(@PathVariable int id) {
         return userServices.getIduser(id);
     }
@@ -50,7 +52,11 @@ public class UserController {
         return userServices.saveuser(modelUser);
     }
 
-
+    @PutMapping("{id}")
+    public String putMethodName(@PathVariable int id, @RequestBody ModelUser modelUser) {
+       
+        return  userServices.updateuser(id ,modelUser);
+    }
     
 
 }

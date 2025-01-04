@@ -60,6 +60,22 @@ public class UserServicesImp implements UserServices {
         BeanUtils.copyProperties(dtoUser, modelUser);
         return modelUser;
     }
+
+
+    @Override
+    public String updateuser(int id, ModelUser modelUser) {
+
+        DtoUser dtoUser=userRepository.findById(id).get();
+
+     
+        dtoUser.setName(modelUser.getName());
+
+        userRepository.save(dtoUser);
+
+       return "User Update Succefully";
+    }
     
+
+    // delete Service  Make
    
 }

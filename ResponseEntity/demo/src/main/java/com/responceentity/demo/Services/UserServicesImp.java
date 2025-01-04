@@ -51,6 +51,15 @@ public class UserServicesImp implements UserServices {
 
         return modelUsers;
     }
+
+
+    @Override
+    public ModelUser getIduser(int id) {
+        DtoUser dtoUser=userRepository.findById(id).get();
+        ModelUser modelUser=new ModelUser();
+        BeanUtils.copyProperties(dtoUser, modelUser);
+        return modelUser;
+    }
     
    
 }

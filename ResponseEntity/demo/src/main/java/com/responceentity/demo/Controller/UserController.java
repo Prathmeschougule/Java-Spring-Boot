@@ -12,6 +12,7 @@ import com.responceentity.demo.Services.UserServices;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -34,6 +35,13 @@ public class UserController {
     public List<ModelUser> getMethodName() {
         return userServices.getalluser();
     }
+
+    @GetMapping({"id"})
+    public ModelUser getbyId(@PathVariable int id) {
+        return userServices.getIduser(id);
+    }
+
+    
     
 
     @PostMapping

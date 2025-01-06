@@ -74,6 +74,16 @@ public class UserServicesImp implements UserServices {
 
        return "User Update Succefully";
     }
+
+
+    @Override
+    public String deleteUserById(int id ) {
+        DtoUser dtoUser=userRepository.findById(id).get();
+        userRepository.delete(dtoUser);
+        return " User Is  Deleted ";
+
+        
+    }
     
 
     // delete Service  Make

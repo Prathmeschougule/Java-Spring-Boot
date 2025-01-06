@@ -10,5 +10,6 @@ public interface UserServices {
     ModelUser saveuser(ModelUser modelUser);
     ModelUser getIduser(int id);
     String updateuser(int id ,ModelUser modelUser);
+   String  deleteUserById(int id );
 
 }

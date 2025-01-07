@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,17 +28,17 @@ public class UserServicesImp implements UserServices {
     }
 
     @Override
-    public ModelUser saveuser(ModelUser modelUser) {
+    public ResponseEntity<Object>  saveuser(ModelUser modelUser) {
 
         DtoUser dtoUser = new DtoUser();
         BeanUtils.copyProperties(modelUser, dtoUser);
         userRepository.save(dtoUser);
 
-        return modelUser;
+        return ResponseEntity.ok().body(modelUser);
     }
 
     @Override
-    public List<ModelUser> getalluser() {
+    public ResponseEntity<List<ModelUser>> getalluser() {
         List<ModelUser> modelUsers = new ArrayList<>();
         List<DtoUser> dtoUserDB = userRepository.findAll();
         for (DtoUser dtoUser : dtoUserDB) {
@@ -47,19 +48,19 @@ public class UserServicesImp implements UserServices {
             modelUsers.add(modelUser);
         }
 
-        return modelUsers;
+        return ResponseEntity.status(HttpStatus.CREATED).body(modelUsers);
     }
 
     @Override
-    public ModelUser getIduser(int id) {
+    public ResponseEntity<Object>  getIduser(int id) {
         DtoUser dtoUser = userRepository.findById(id).get();
         ModelUser modelUser = new ModelUser();
         BeanUtils.copyProperties(dtoUser, modelUser);
-        return modelUser;
+        return ResponseEntity.ok().body("User with ID " + modelUser + " Find successfully.");
     }
 
     @Override
-    public  ResponseEntity<Object> updateuser(int id, ModelUser modelUser) {
+    public  ResponseEntity<?> updateuser(int id, ModelUser modelUser) {
 
         DtoUser dtoUser = userRepository.findById(id).get();
 

@@ -34,12 +34,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<ModelUser> getMethodName() {
+    public ResponseEntity<List<ModelUser>> getMethodName() {
         return userServices.getalluser();
     }
 
     @GetMapping("{id}")
-    public ModelUser getbyId(@PathVariable int id) {
+    public ResponseEntity<Object>  getbyId(@PathVariable int id) {
         return userServices.getIduser(id);
     }
 
@@ -47,13 +47,13 @@ public class UserController {
     
 
     @PostMapping
-    public ModelUser postMethodName(@RequestBody ModelUser modelUser) {
+    public ResponseEntity<Object>  postMethodName(@RequestBody ModelUser modelUser) {
         
         return userServices.saveuser(modelUser);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Object>  putMethodName(@PathVariable int id, @RequestBody ModelUser modelUser) {
+    public ResponseEntity<?>  putMethodName(@PathVariable int id, @RequestBody ModelUser modelUser) {
        
         return  userServices.updateuser(id ,modelUser);
     }

@@ -8,10 +8,10 @@ import com.responceentity.demo.Model.ModelUser;
 
 public interface UserServices {
     
-    List<ModelUser>getalluser();
-    ModelUser saveuser(ModelUser modelUser);
-    ModelUser getIduser(int id);
-    ResponseEntity<Object>  updateuser(int id ,ModelUser modelUser);
+    ResponseEntity<List<ModelUser>> getalluser();
+    ResponseEntity<Object>  saveuser(ModelUser modelUser);
+    ResponseEntity<Object>  getIduser(int id);
+    ResponseEntity<?>  updateuser(int id ,ModelUser modelUser);
    ResponseEntity<Object> deleteUserById(int id );
 
 }

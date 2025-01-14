@@ -27,7 +27,7 @@ public class UserController {
     // dependacy injeaction
     @Autowired
     UserServices userServices;
-
+    
     // dependacy injeaction in Constructor
     public UserController(UserServices userServices){
         this.userServices=userServices;

@@ -12,5 +12,6 @@ import com.rest.demo.repository.ProductRepo;
 public  interface ProductServices{
     
         ResponseEntity<Object>createproduct(ProductModel productModel);
+        ResponseEntity<Object>getbyiduser(int id );
     
 }

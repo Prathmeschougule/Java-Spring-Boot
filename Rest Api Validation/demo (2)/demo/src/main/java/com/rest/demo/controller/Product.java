@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rest.demo.model.ProductModel;
 import com.rest.demo.services.ProductServices;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,8 +37,13 @@ public class Product{
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Object> getMethodName(@PathVariable int id ) {
+    public ResponseEntity<Object> getUserId(@PathVariable int id ) {
         return productServices.getbyiduser(id);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Object>updateMethod(@RequestBody ProductModel productModel , int id ){
+        return productServices.updateUser(productModel, id);
     }
     
     

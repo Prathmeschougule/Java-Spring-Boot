@@ -13,5 +13,6 @@ public  interface ProductServices{
     
         ResponseEntity<Object>createproduct(ProductModel productModel);
         ResponseEntity<Object>getbyiduser(int id );
+        ResponseEntity<Object>updateUser(ProductModel productModel,int id);
     
 }

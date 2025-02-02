@@ -1,5 +1,7 @@
 package com.rest.demo.services;
 
+import java.util.Map;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +58,34 @@ public class ProductServiceImp  implements ProductServices {
           throw new ProductCreationException("Failed to find the Id: " + e.getMessage());
        }
     }
+
+
+    @Override
+public ResponseEntity<Object> updateUser(ProductModel productModel, int id) {
+
+    if (id == 0) {
+        throw new IllegalArgumentException("ID cannot be null");
+        
+    } 
+
+    try {
+        ProductDto productDto = productRepo.findById(id)
+                .orElseThrow(() -> new ProductCreationException("Product not found with id: " + id));
+        
+        productDto.setEmail(productModel.getEmail());
+        productDto.setPhone(productModel.getPhone());
+        productRepo.save(productDto);
+        
+        return ResponseEntity.ok(Map.of(
+            "message", "Update Data Successfully",
+            "updatedProduct", productModel
+        ));
+    } catch (Exception e) {
+        // Log exception
+        // logger.error("Error updating product", e);
+        throw new ProductCreationException("Failed to update data: " + e.getMessage());
+    }
+}
+
     
 }

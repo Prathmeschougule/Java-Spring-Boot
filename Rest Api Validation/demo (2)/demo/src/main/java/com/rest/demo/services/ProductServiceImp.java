@@ -1,9 +1,12 @@
 package com.rest.demo.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -86,6 +89,43 @@ public ResponseEntity<Object> updateUser(ProductModel productModel, int id) {
         throw new ProductCreationException("Failed to update data: " + e.getMessage());
     }
 }
+
+
+    @Override
+    public ResponseEntity<Object> deleteuser(int id) {
+        try {
+            ProductDto productDto=productRepo.findById(id).get();
+            productRepo.delete(productDto);
+            return ResponseEntity.ok("The User Is Deleted"+id);
+        } catch (Exception e) {
+            
+         throw new ProductCreationException("Id Dose Not Find ");
+        }
+    }
+
+
+    @Override
+    public ResponseEntity<Object> getAllProduct() {
+        try {
+            List<ProductModel> products = new ArrayList<>();
+            List<ProductDto> productDb = productRepo.findAll();
+            for (ProductDto productDto : productDb) {
+                ProductModel product = new ProductModel();
+                BeanUtils.copyProperties(productDto, product);
+                products.add(product);
+            }
+            if (products.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body("No products available.");
+            }
+            return ResponseEntity.ok(products);
+        } catch (Exception e) {
+            throw new ProductCreationException("Unable to fetch products: " + e.getMessage());
+        }
+    }
+    
+
+
+  
 
     
 }
